@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+:root {
+  background: url(assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  --text-color: white;
+  --li-background-color: rgba(255, 255, 255, 0.1);
+  --li-border-color: 1px solid rgba(255, 255, 255, 0.5);
+  --li-hover-border-color: 1.5px solid white;
+  --li-hover-background-color: rgba(255, 255, 255, 0.05);
+  --a-icons-links: rgba(255, 255, 255, 0.05);
+  --switch-background: url(assets/sun.svg);
+  --button: 0%;
+}
+
+.light {
+  background: url(assets/bg-mobile-light.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  --text-color: black;
+  --li-background-color: rgba(0, 0, 0, 0.1);
+  --li-border-color: 1px solid rgba(0, 0, 0, 0.5);
+  --li-hover-border-color: 1.5px solid black;
+  --li-hover-background-color: rgba(0, 0, 0, 0.05);
+  --a-icons-links: rgba(0, 0, 0, 0.05);
+  --switch-background: url(assets/moon-stars.svg);
+  --button: 50%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Inter", "sans-serif";
+}
+
+body * {
+  color: var(--text-color);
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+  text-align: center;
+}
+#container #profile {
+  padding: 24px;
+}
+#container #profile img {
+  width: 112px;
+}
+#container #profile p {
+  font-weight: 500;
+  line-height: 24px;
+}
+#container #switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+#container #switch button {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-background) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  top: 50%;
+  z-index: 1;
+  left: var(--button);
+  animation: slide-back;
+  animation-duration: 0.5s;
+}
+.light #container #switch button {
+  animation: slide-in;
+  animation-duration: 0.5s;
+  animation-timing-function: forwards;
+}
+#container #switch span {
+  width: 64px;
+  height: 24px;
+  display: block;
+  background: var(--li-background-color);
+  border: 1px solid var(--text-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+#container ul {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0px;
+  gap: 16px;
+}
+#container ul li {
+  background-color: var(--li-background-color);
+  border: var(--li-border-color);
+  padding: 16px 24px;
+  border-radius: 5px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4);
+  font-weight: 500;
+  transition: background 0.3s;
+}
+#container ul li:hover {
+  background-color: var(--li-hover-background-color);
+  border: var(--li-hover-border-color);
+}
+#container #social-links {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+#container #social-links a {
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 30px;
+}
+#container #social-links a:hover {
+  background-color: var(--a-icons-links);
+}
+#container footer {
+  padding: 24px 0px;
+  font-size: 14px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    background-image: url(assets/bg-desktop.jpg);
+  }
+  .light {
+    background-image: url(assets/bg-desktop-light.jpg);
+  }
+}
+@keyframes slide-in {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0%;
+  }
+}
